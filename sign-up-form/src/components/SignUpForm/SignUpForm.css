@@ -1,4 +1,4 @@
-/* Variables */
+
 :root {
   --c-bg-color: #2B2D42;
   --c-btn-color: #4ECDC4;
@@ -97,4 +97,26 @@ h2 {
   color: red;
   margin-top: 5px; 
   font-size: 1.2em;
+}
+
+.password-container {
+  position: relative;
+  display: flex;
+}
+
+input[type="password"] {
+  flex: 1;
+  padding-right: 30px; 
+}
+
+.password-toggle {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  cursor: pointer;
+  padding: 0 10px;
+  color: #FFF; 
+  border: none;
+  margin-right: 5px;
 }

@@ -12,6 +12,7 @@ const SignUpForm = () => {
   const [passwordError, setPasswordError] = useState('');
   const [showForm, setShowForm] = useState(true);
   const [showSuccess, setShowSuccess] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleInputChange = (e) => {
     const { id, value } = e.target;
@@ -22,6 +23,10 @@ const SignUpForm = () => {
     } else if (id === 'custom-password') {
       setPassword(value);
     }
+  };
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
   };
 
   const validateForm = () => {
@@ -87,13 +92,18 @@ const SignUpForm = () => {
               value={email}
               onChange={handleInputChange}
             />
-            <input
-              type="password"
-              placeholder="Enter a strong password"
-              id="custom-password"
-              value={password}
-              onChange={handleInputChange}
-            />
+            <div className="password-container">
+        <input
+          type={showPassword ? 'text' : 'password'}
+          placeholder="Enter a strong password"
+          id="custom-password"
+          value={password}
+          onChange={handleInputChange}
+        />
+        <span className="password-toggle" onClick={togglePasswordVisibility}>
+          {showPassword ? 'Hide' : 'Show'}
+        </span>
+      </div>
             <input type="submit" value="Sign up" onClick={handleFormSubmit} />
           </div>
         </div>
